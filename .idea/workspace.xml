@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8153214-9d00-47e1-9538-5cb062238eac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/controleAcademico.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controleAcademico.py" afterDir="false" />
+    <list default="true" id="a8153214-9d00-47e1-9538-5cb062238eac" name="Changes" comment="First Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleAcademico.py" beforeDir="false" afterPath="$PROJECT_DIR$/controleAcademico.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,15 +126,31 @@
       <updated>1716985713308</updated>
       <workItem from="1716985713310" duration="7538000" />
       <workItem from="1717000728410" duration="5875000" />
-      <workItem from="1717433864953" duration="647000" />
+      <workItem from="1717433864953" duration="1564000" />
+      <workItem from="1717690820145" duration="607000" />
+      <workItem from="1717776685658" duration="1304000" />
+      <workItem from="1718272457794" duration="1108000" />
     </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1717434535714</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717434535714</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/controleAcademico$tests.coverage" NAME="tests Coverage Results" MODIFIED="1717005410255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
-    <SUITE FILE_PATH="coverage/controleAcademico$controleAcademico.coverage" NAME="controleAcademico Coverage Results" MODIFIED="1717433927104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/controleAcademico$controleAcademico.coverage" NAME="controleAcademico Coverage Results" MODIFIED="1718273502420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
