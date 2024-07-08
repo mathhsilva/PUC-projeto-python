@@ -1,8 +1,6 @@
-# Matheus Cordeiro da Silva
-# Análise e Desenvolvimento de Sistemas
 import json
 
-# Nomes dos arquivos JSON (Utilizado para salvar os arquivos e recuperar após a finalização do sistema.)
+# Nomes dos arquivos JSON
 ALUNOS_FILE = 'alunos.json'
 DISCIPLINAS_FILE = 'disciplinas.json'
 PROFESSORES_FILE = 'professores.json'
@@ -24,123 +22,44 @@ def salvar_dados(arquivo, dados):
     with open(arquivo, 'w') as f:
         json.dump(dados, f, indent=4)
 
-# Carregar dados ao iniciar o sistema
-alunos = carregar_dados(ALUNOS_FILE)
-disciplinas = carregar_dados(DISCIPLINAS_FILE)
-professores = carregar_dados(PROFESSORES_FILE)
-turmas = carregar_dados(TURMAS_FILE)
-matriculas = carregar_dados(MATRICULAS_FILE)
+# Função para incluir um novo registro
+def incluir_registro(arquivo, dados_novos):
+    dados = carregar_dados(arquivo)
+    dados.append(dados_novos)
+    salvar_dados(arquivo, dados)
+    print(f"Registro cadastrado com sucesso em {arquivo}!")
 
-# Função para exibir o menu principal
-def exibir_menu_principal():
-    print("\nMenu Principal:")
-    print("1. Estudantes")
-    print("2. Disciplinas")
-    print("3. Professores")
-    print("4. Turmas")
-    print("5. Matrículas")
-    print("6. Sair")
-
-# Função para exibir o menu de operações
-def exibir_menu_operacoes():
-    print("\nMenu de Operações:")
-    print("1. Incluir")
-    print("2. Listar")
-    print("3. Atualizar (EM DESENVOLVIMENTO!)")
-    print("4. Excluir (EM DESENVOLVIMENTO!)")
-    print("5. Voltar ao menu principal")
-
-# Função para listar os alunos cadastrados
-def listar_alunos():
-    print("\nAlunos cadastrados:")
-    if alunos:
-        for aluno in alunos:
-            print(f"Nome: {aluno['nome']}, Matrícula: {aluno['matricula']}")
+# Função para listar os registros de um arquivo
+def listar_registros(arquivo, mensagem_vazia):
+    dados = carregar_dados(arquivo)
+    print(f"\n{mensagem_vazia}:")
+    if dados:
+        for item in dados:
+            print(item)
     else:
-        print("Nenhum aluno cadastrado.")
+        print("Nenhum registro encontrado.")
 
-# Função para incluir um novo aluno
-def incluir_aluno():
-    nome = input("Digite o nome do aluno: ")
-    matricula = input("Digite a matrícula do aluno: ")
-    alunos.append({'nome': nome, 'matricula': matricula})
-    salvar_dados(ALUNOS_FILE, alunos)
-    print("Aluno cadastrado com sucesso!")
+# Função para atualizar um registro (em desenvolvimento)
+def atualizar_registro(arquivo):
+    print("Função de atualização em desenvolvimento!")
 
-# Função para listar as disciplinas cadastradas
-def listar_disciplinas():
-    print("\nDisciplinas cadastradas:")
-    if disciplinas:
-        for disciplina in disciplinas:
-            print(f"Nome: {disciplina['nome']}, Código: {disciplina['codigo']}")
-    else:
-        print("Nenhuma disciplina cadastrada.")
-
-# Função para incluir uma nova disciplina
-def incluir_disciplina():
-    nome = input("Digite o nome da disciplina: ")
-    codigo = input("Digite o código da disciplina: ")
-    disciplinas.append({'nome': nome, 'codigo': codigo})
-    salvar_dados(DISCIPLINAS_FILE, disciplinas)
-    print("Disciplina cadastrada com sucesso!")
-
-# Função para listar os professores cadastrados
-def listar_professores():
-    print("\nProfessores cadastrados:")
-    if professores:
-        for professor in professores:
-            print(f"Nome: {professor['nome']}, ID: {professor['id']}")
-    else:
-        print("Nenhum professor cadastrado.")
-
-# Função para incluir um novo professor
-def incluir_professor():
-    nome = input("Digite o nome do professor: ")
-    id_professor = input("Digite o ID do professor: ")
-    professores.append({'nome': nome, 'id': id_professor})
-    salvar_dados(PROFESSORES_FILE, professores)
-    print("Professor cadastrado com sucesso!")
-
-# Função para listar as turmas cadastradas
-def listar_turmas():
-    print("\nTurmas cadastradas:")
-    if turmas:
-        for turma in turmas:
-            print(f"Código: {turma['codigo']}, Disciplina: {turma['disciplina']}, Professor: {turma['professor']}")
-    else:
-        print("Nenhuma turma cadastrada.")
-
-# Função para incluir uma nova turma
-def incluir_turma():
-    codigo = input("Digite o código da turma: ")
-    disciplina = input("Digite o nome da disciplina da turma: ")
-    professor = input("Digite o nome do professor da turma: ")
-    turmas.append({'codigo': codigo, 'disciplina': disciplina, 'professor': professor})
-    salvar_dados(TURMAS_FILE, turmas)
-    print("Turma cadastrada com sucesso!")
-
-# Função para listar as matrículas realizadas
-def listar_matriculas():
-    print("\nMatrículas realizadas:")
-    if matriculas:
-        for matricula in matriculas:
-            print(f"Aluno: {matricula['aluno']}, Turma: {matricula['turma']}")
-    else:
-        print("Nenhuma matrícula realizada.")
-
-# Função para incluir uma nova matrícula
-def incluir_matricula():
-    aluno = input("Digite o nome do aluno: ")
-    turma = input("Digite o código da turma: ")
-    matriculas.append({'aluno': aluno, 'turma': turma})
-    salvar_dados(MATRICULAS_FILE, matriculas)
-    print("Matrícula realizada com sucesso!")
+# Função para excluir um registro (em desenvolvimento)
+def excluir_registro(arquivo):
+    print("Função de exclusão em desenvolvimento!")
 
 # Função principal que controla o fluxo do programa
 def main():
     while True:
-        # Exibe o menu principal e obtém a opção do usuário
-        exibir_menu_principal()
+        # Exibe o menu principal
+        print("\nMenu Principal:")
+        print("1. Estudantes")
+        print("2. Disciplinas")
+        print("3. Professores")
+        print("4. Turmas")
+        print("5. Matrículas")
+        print("6. Sair")
+
+        # Obtém a opção do usuário
         opcao_principal = input("Selecione uma opção: ")
 
         # Se a opção for '6', o sistema encerra
@@ -156,10 +75,34 @@ def main():
         # Converte a opção principal para inteiro
         opcao_principal = int(opcao_principal)
 
+        # Define os arquivos e mensagens de acordo com a opção selecionada
+        if opcao_principal == 1:
+            arquivo = ALUNOS_FILE
+            mensagem_vazia = "Nenhum aluno cadastrado."
+        elif opcao_principal == 2:
+            arquivo = DISCIPLINAS_FILE
+            mensagem_vazia = "Nenhuma disciplina cadastrada."
+        elif opcao_principal == 3:
+            arquivo = PROFESSORES_FILE
+            mensagem_vazia = "Nenhum professor cadastrado."
+        elif opcao_principal == 4:
+            arquivo = TURMAS_FILE
+            mensagem_vazia = "Nenhuma turma cadastrada."
+        elif opcao_principal == 5:
+            arquivo = MATRICULAS_FILE
+            mensagem_vazia = "Nenhuma matrícula realizada."
+
         # Loop para operações dentro da categoria selecionada
         while True:
-            # Exibe o menu de operações e obtém a operação do usuário
-            exibir_menu_operacoes()
+            # Exibe o menu de operações
+            print("\nMenu de Operações:")
+            print("1. Incluir")
+            print("2. Listar")
+            print("3. Atualizar (EM DESENVOLVIMENTO!)")
+            print("4. Excluir (EM DESENVOLVIMENTO!)")
+            print("5. Voltar ao menu principal")
+
+            # Obtém a operação do usuário
             operacao = input("Selecione uma operação: ")
 
             # Se a operação for '5', volta ao menu principal
@@ -174,47 +117,42 @@ def main():
             # Converte a operação para inteiro
             operacao = int(operacao)
 
-            # Verifica a categoria selecionada e executa a operação correspondente
-            if opcao_principal == 1:  # Estudantes
-                if operacao == 1:
-                    incluir_aluno()
-                elif operacao == 2:
-                    listar_alunos()
-                elif operacao in [3, 4]:
-                    print("EM DESENVOLVIMENTO!")
-                    break
-            elif opcao_principal == 2:  # Disciplinas
-                if operacao == 1:
-                    incluir_disciplina()
-                elif operacao == 2:
-                    listar_disciplinas()
-                elif operacao in [3, 4]:
-                    print("EM DESENVOLVIMENTO!")
-                    break
-            elif opcao_principal == 3:  # Professores
-                if operacao == 1:
-                    incluir_professor()
-                elif operacao == 2:
-                    listar_professores()
-                elif operacao in [3, 4]:
-                    print("EM DESENVOLVIMENTO!")
-                    break
-            elif opcao_principal == 4:  # Turmas
-                if operacao == 1:
-                    incluir_turma()
-                elif operacao == 2:
-                    listar_turmas()
-                elif operacao in [3, 4]:
-                    print("EM DESENVOLVIMENTO!")
-                    break
-            elif opcao_principal == 5:  # Matrículas
-                if operacao == 1:
-                    incluir_matricula()
-                elif operacao == 2:
-                    listar_matriculas()
-                elif operacao in [3, 4]:
-                    print("EM DESENVOLVIMENTO!")
-                    break
+            # Executa a operação selecionada
+            if operacao == 1:
+                # Incluir novo registro
+                if opcao_principal == 1:  # Estudantes
+                    nome = input("Digite o nome do aluno: ")
+                    matricula = input("Digite a matrícula do aluno: ")
+                    incluir_registro(arquivo, {'nome': nome, 'matricula': matricula})
+                elif opcao_principal == 2:  # Disciplinas
+                    nome = input("Digite o nome da disciplina: ")
+                    codigo = input("Digite o código da disciplina: ")
+                    incluir_registro(arquivo, {'nome': nome, 'codigo': codigo})
+                elif opcao_principal == 3:  # Professores
+                    nome = input("Digite o nome do professor: ")
+                    id_professor = input("Digite o ID do professor: ")
+                    incluir_registro(arquivo, {'nome': nome, 'id': id_professor})
+                elif opcao_principal == 4:  # Turmas
+                    codigo = input("Digite o código da turma: ")
+                    disciplina = input("Digite o nome da disciplina da turma: ")
+                    professor = input("Digite o nome do professor da turma: ")
+                    incluir_registro(arquivo, {'codigo': codigo, 'disciplina': disciplina, 'professor': professor})
+                elif opcao_principal == 5:  # Matrículas
+                    aluno = input("Digite o nome do aluno: ")
+                    turma = input("Digite o código da turma: ")
+                    incluir_registro(arquivo, {'aluno': aluno, 'turma': turma})
+
+            elif operacao == 2:
+                # Listar registros
+                listar_registros(arquivo, mensagem_vazia)
+
+            elif operacao == 3:
+                # Atualizar registro
+                atualizar_registro(arquivo)
+
+            elif operacao == 4:
+                # Excluir registro
+                excluir_registro(arquivo)
 
 # Executa a função principal quando o script é executado diretamente
 if __name__ == "__main__":
